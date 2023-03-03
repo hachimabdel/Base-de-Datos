@@ -10,10 +10,10 @@ DROP TABLE IF EXISTS asistencia_act;
 --Esta tabla contiene información acerca de los docentes que trabajan en la guardería. 
 --Registra el dni del docente, su nombre, su teléfono y el año de ingreso al trabajo.
 CREATE TABLE docentes(
-	dni					SMALLSERIAL,
-	nombre				TEXT,
-	telefono			INTEGER,
-	anioingreso			INT4,
+	dni					VARCHAR,
+	nombre				VARCHAR,
+	telefono			VARCHAR,
+	anioingreso			INTEGER,
 	
 	CONSTRAINT pk_dni PRIMARY KEY (dni)
 );
@@ -23,8 +23,8 @@ CREATE TABLE docentes(
 --Registra el identificador de la actividad, el nombre (gimnasia, natación, artes plásticas, música, etc.) 
 --y la duración (en minutos) de la misma en cada clase.
 
-CREATE TABLE docentes(
-	idact				SMALLSERIAL,
+CREATE TABLE actividades(
+	idact				INTEGER,
 	nombre				VARCHAR,
 	duracion			NUMERIC,
 	
@@ -36,10 +36,10 @@ CREATE TABLE docentes(
 --Registra el código de identificación del alumno, su nombre, su teléfono y el nivel (2 años, 3 años, etc.), al cual asiste el niño.
 
 CREATE TABLE alumnos(
-	codalumno			SERIAL,
-	nombre				TEXT,
-	telefono			INTEGER,
-	nivel				TEXT,
+	codalumno			INTEGER,
+	nombre				VARCHAR,
+	telefono			VARCHAR,
+	nivel				VARCHAR,
 	
 	CONSTRAINT pk_codalumno PRIMARY KEY (codalumno)
 );
@@ -51,9 +51,9 @@ CREATE TABLE alumnos(
 --en el mismo día o en distintos días.
 
 CREATE TABLE asignacion_act(
-	iddoc				SERIAL,
-	idact				SMALLSERIAL,
-	diasemana			TEXT,
+	iddoc				SMALSERIAL,
+	idact				SMALLINT,
+	diasemana			VARCHAR,
 	hora				DATE,
 	
 	CONSTRAINT pk_iddoc_idact_diasemana_hora PRIMARY KEY (iddoc, idact, diasemana, hora)
@@ -66,40 +66,11 @@ CREATE TABLE asignacion_act(
 --Un alumno asiste a una actividad con un único docente. 
 
 CREATE TABLE asistencia_act(
-	idalum				SERIAL,
-	idact				SMALLSERIAL,
-	iddoc				SERIAL,
+	idalum				INTEGER,
+	idact				INTEGER,
+	iddoc				SMALLINT,
 	
 	CONSTRAINT pk_idalum_idact PRIMARY KEY (idalum, idact)
 );
 
 ALTER TABLE 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
