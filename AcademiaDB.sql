@@ -6,52 +6,62 @@
  DROP TABLE IF EXISTS tiposcurso CASCADE;
  
  CREATE TABLE empresas (
-	 cif 			text,
-	 nombre			text,
-	 direccion		text,
-	 telefono		text,
+	 cif 			VARCHAR(9),
+	 nombre			VARCHAR,
+	 direccion		VARCHAR,
+	 telefono		INT(9),
+	 
+	 CONSTRAINT pk_cif PRIMARY KEY (cif)
  );
  
   CREATE TABLE alumnos (
-	 dni 			text,
-	 nombre			text,
-	 direccio		numeric,
-	 telefono		text,
-	 edad 			text,
-	 empresa		text,
+	 dni 			VARCHAR(10),
+	 nombre			VARCHAR,
+	 direccion		VARCHAR,
+	 telefono		NUMERIC,
+	 edad 			INT2,
+	 empresa		TEXT,
+	  
+	 CONSTRAINT pk_dni PRIMARY KEY (dni)
+
  );
  
   CREATE TABLE alumnos_asisten (
-	 dni			text,
-	 nconcreto		integer,
-	 direccion		text,
-	 telefono		text,
+	 dni			VARCHAR(10),
+	 nconcreto		INTEGER,
+	 direccion		VARCHAR,
+	 telefono		NUMERIC(9),
+	  
+	 CONSTRAINT pk_dni PRIMARY KEY (dni)
+
  );
  
   CREATE TABLE cursos (
-	 nconcreto		text,
-	 fechainicio	date,
-	 fechafin		date,
-	 dni_profesor	text,
-	 tipocurso		INTEGER
+	 nconcreto		INTEGER,
+	 fechainicio	DATE,
+	 fechafin		DATE,
+	 dni_profesor	VARCHAR(10),
+	 tipocurso		INTEGER,
+	  
+	 CONSTRAINT pk_nconcreto PRIMARY KEY (nconcreto)
  );
  
   CREATE TABLE profesores (
-	 dni 			text,
-	 nombre			text,
-	 apellidos		text,
-	 direcccion		text,
+	 dni 			VARCHAR(10),
+	 nombre			VARCHAR,
+	 apellidos		VARCHAR,
+	 direccion		VARCHAR,
 	  
-	 CONSTRAINT pk_dni PRIMARY KEY ()
+	 CONSTRAINT pk_dni PRIMARY KEY (dni)
  );
  
   CREATE TABLE tipos_cursos (
 	 codcursos 		INTEGER,
 	 duracion		INTEGER,
-	 programa		text,
-	 titulo			text,
+	 programa		TEXT,
+	 titulo			TEXT,
 	  
-	 CONSTRAINT pk_dni PRIMARY KEY ()
+	 CONSTRAINT pk_codcursos PRIMARY KEY (codcursos)
  
  );
  
